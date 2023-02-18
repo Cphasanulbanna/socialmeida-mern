@@ -5,11 +5,9 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Post from "./Post";
 
-function Feed() {
+function Feed({ userData }) {
     const [description, setDescription] = useState("");
     const [postImage, setPostImage] = useState("");
-
-    console.log(postImage, "post-image");
 
     const accessToken = useSelector((state) => state.data.token);
     const id = useSelector((state) => state.data.user._id);
@@ -49,7 +47,7 @@ function Feed() {
                 <TopBox>
                     <ProfileImageBox>
                         <img
-                            src=""
+                            src={userData?.avatar?.url}
                             alt="profile"
                         />
                     </ProfileImageBox>

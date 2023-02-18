@@ -1,33 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 //PACKAGES
 import styled from "styled-components";
 
-function ProfileBox() {
-    const [userData, setUserData] = useState(null);
-    const id = useSelector((state) => state.data.user._id);
-    const accessToken = useSelector((state) => state.data.token);
-    const userInfo = useSelector((state) => state.data.user);
-    // console.log(id, "id");
-
-    useEffect(() => {
-        if (id) {
-            axios
-                .get(`http://localhost:3001/users/${id}`, {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                })
-                .then((response) => {
-                    console.log(response);
-                    setUserData(response.data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-    }, [userInfo, id, accessToken]);
+function ProfileBox({ userData }) {
     return (
         <MainContainer>
             <ContentBox>
