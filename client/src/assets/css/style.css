@@ -1,0 +1,127 @@
+/* COMMON STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  body {
+    font-family: "dm_sansregular";
+    overflow-x: hidden !important;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: "dm_sansregular";
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wrapper {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "dm_sansboldmedium";
+  }
+  
+  /* FONTS */
+  @font-face {
+    font-display: auto;
+    font-family: "dm_sansregular";
+    src: url("../fonts/dmsans-regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-display: auto;
+    font-family: "dm_sansboldmedium";
+    src: url("../fonts/dmsans-medium.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "dm_sansboldbold";
+    src: url("../fonts/dmsans-bold.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+/* DROP-BOX STYLES */
+  .drop-box {
+	padding: 5px;
+	border-radius: 4px;
+	text-align: center;
+	border: 1px solid #e0d0d0;
+	position: relative;
+  }
+
+  .drop-box div.drag-drop-box {
+	border: 1px dashed #2cbaea;
+	padding: 20px 10px;
+  }
+
+  .drop-box div p {
+	font-size: 14px;
+	color: #e0d0d0;
+	font-family: "dm_sansregular";
+  }
+
+  .drop-box .last-error-msg {
+	position: absolute;
+	bottom: -20px;
+  }
+
+  .drop-box .last-error-msg p {
+	color: red;
+	font-size: 12px;
+  }
+
+/* ERROR MESSAGE STYLE */
+  .error-message {
+	font-size: 12px;
+	color: red;
+  }
+
+/* TOOLTIP STYLE */
+  .custom-style {
+    color: #fff;
+    background-color: rgb(0, 255, 30);
+  } 
+  
+  .icon-box {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .loader-style {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+  }
