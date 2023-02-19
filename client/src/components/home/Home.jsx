@@ -45,9 +45,7 @@ function Home() {
                     },
                 }
             )
-            .then((response) => {
-                console.log(response);
-            })
+            .then((response) => {})
             .catch((error) => {
                 console.log(error);
             });

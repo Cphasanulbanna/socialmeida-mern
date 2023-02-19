@@ -160,5 +160,6 @@ const Heading = styled.h2`
 const PostImageBox = styled.div`
     border-radius: 10px;
     overflow: hidden;
+    max-height: 500px;
     width: 100%;
 `;

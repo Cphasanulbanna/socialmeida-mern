@@ -5,7 +5,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setLogin, setUserInfo } from "../../redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
     //FORM STATES
@@ -116,7 +116,7 @@ function Login() {
                         <SubmitButton onClick={(e) => login(e)}>
                             {loading ? "" : "Login"}
                         </SubmitButton>
-                        <Register>Don't have an account? register here</Register>
+                        <Register to="/register">Don't have an account? register here</Register>
                     </Form>
                 </ContentBox>
             </Wrapper>
@@ -202,7 +202,7 @@ const SubmitButton = styled.span`
     background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%);
 `;
 
-const Register = styled.span`
+const Register = styled(Link)`
     color: #a1e8a0;
     cursor: pointer;
     margin-top: 5px;

@@ -28,9 +28,9 @@ function FriendList({ addFriend }) {
     }, []);
     return (
         <>
-            {friends.map((friend) => (
-                <MainContainer>
-                    <Heading>Friend List</Heading>
+            <MainContainer>
+                <Heading>Friend List</Heading>
+                {friends.map((friend) => (
                     <ListBox>
                         <ListItem>
                             <LeftBox>
@@ -55,8 +55,8 @@ function FriendList({ addFriend }) {
                             </RightBox>
                         </ListItem>
                     </ListBox>
-                </MainContainer>
-            ))}
+                ))}
+            </MainContainer>
         </>
     );
 }
@@ -83,7 +83,9 @@ const MainContainer = styled.div`
 const Heading = styled.h2`
     margin-bottom: 10px;
 `;
-const ListBox = styled.div``;
+const ListBox = styled.div`
+    margin-bottom: 20px;
+`;
 const ListItem = styled.div`
     display: flex;
     justify-content: space-between;
