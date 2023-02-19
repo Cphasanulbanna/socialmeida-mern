@@ -57,7 +57,6 @@ function Login() {
                 axios
                     .post("http://localhost:3001/auth/login", formData)
                     .then((response) => {
-                        console.log(response);
                         dispatch(setLogin(response.data.token));
                         dispatch(setUserInfo(response.data.user));
                         navigate("/home");
