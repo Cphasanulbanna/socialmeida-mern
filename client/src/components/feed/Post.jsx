@@ -37,6 +37,27 @@ function Post({ addFriend }) {
         fetchPosts();
     }, []);
 
+    const likePost = (postId) => {
+        axios
+            .put(
+                `http://localhost:3001/posts/${postId}/like`,
+                {
+                    userId: id,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                }
+            )
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     // const addFriend = (friendId) => {
     //     axios
     //         .put(
@@ -97,11 +118,13 @@ function Post({ addFriend }) {
                         </PostImageBox>
                         <BottomBox>
                             <LefIconsBox>
-                                <LikeBox>
+                                <LikeBox onClick={() => likePost(post._id)}>
                                     <img
                                         src={like}
                                         alt="like"
                                     />
+                                    {Object.keys(post?.likes).length}
+                                    {console.log(post)}
                                 </LikeBox>
                                 <CommentBox>
                                     <img
@@ -205,7 +228,12 @@ const LikeBox = styled.div`
     width: 15px;
     height: 15px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    img {
+        margin-right: 5px;
+    }
 `;
 const CommentBox = styled.div`
     width: 15px;
