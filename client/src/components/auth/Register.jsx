@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 
 //PACKAGES
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
@@ -24,6 +24,8 @@ function Register() {
 
     //LOADER STATE
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     //FORM STATES
     const [errors, setErrors] = useState({});
@@ -120,6 +122,7 @@ function Register() {
                     .post("http://localhost:3001/auth/register", formData, config)
                     .then((response) => {
                         console.log(response);
+                        navigate("/");
                         setLoading(false);
                     })
                     .catch((error) => {

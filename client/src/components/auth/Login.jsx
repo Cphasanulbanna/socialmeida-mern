@@ -5,6 +5,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setLogin, setUserInfo } from "../../redux";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     //FORM STATES
@@ -17,6 +18,7 @@ function Login() {
     const [loading, setLoading] = useState(false);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     //SETTING FIELD DATA
     const handleChange = (e) => {
@@ -58,6 +60,7 @@ function Login() {
                         console.log(response);
                         dispatch(setLogin(response.data.token));
                         dispatch(setUserInfo(response.data.user));
+                        navigate("/home");
                         setLoading(false);
                     })
                     .catch((error) => {
@@ -114,6 +117,7 @@ function Login() {
                         <SubmitButton onClick={(e) => login(e)}>
                             {loading ? "" : "Login"}
                         </SubmitButton>
+                        <Register>Don't have an account? register here</Register>
                     </Form>
                 </ContentBox>
             </Wrapper>
@@ -197,4 +201,11 @@ const SubmitButton = styled.span`
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     color: #fff;
     background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%);
+`;
+
+const Register = styled.span`
+    color: #a1e8a0;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
 `;
