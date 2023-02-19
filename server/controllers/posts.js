@@ -1,7 +1,8 @@
-//imports
+//MODELS
 import Post from "../models/Post.js";
 import User from "../models/User.js";
 
+//PACKAGES
 import cloudinary from "cloudinary";
 
 //CREATE

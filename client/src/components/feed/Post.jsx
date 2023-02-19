@@ -5,6 +5,10 @@ import { useSelector } from "react-redux";
 //PACKAGES
 import styled from "styled-components";
 
+//IMAGES
+import like from "../../assets/images/post/heart.png";
+import redHeart from "../../assets/images/post/heart-red.png";
+
 function Post({ addFriend }) {
     const [posts, setPosts] = useState([]);
     const accessToken = useSelector((state) => state.data.token);
@@ -83,7 +87,7 @@ function Post({ addFriend }) {
                             />
                         </RightBox>
                     </TopBox>
-                    <BottomBox>
+                    <BottomContainer>
                         <Heading>{post.description}</Heading>
                         <PostImageBox>
                             <img
@@ -91,7 +95,29 @@ function Post({ addFriend }) {
                                 alt="post"
                             />
                         </PostImageBox>
-                    </BottomBox>
+                        <BottomBox>
+                            <LefIconsBox>
+                                <LikeBox>
+                                    <img
+                                        src={like}
+                                        alt="like"
+                                    />
+                                </LikeBox>
+                                <CommentBox>
+                                    <img
+                                        src={require("../../assets/images/post/comment.png")}
+                                        alt="comment"
+                                    />
+                                </CommentBox>
+                            </LefIconsBox>
+                            <RightIconBox>
+                                <img
+                                    src={require("../../assets/images/post/share.png")}
+                                    alt="share"
+                                />
+                            </RightIconBox>
+                        </BottomBox>
+                    </BottomContainer>
                 </MainContainer>
             ))}
         </>
@@ -151,7 +177,7 @@ const RightBox = styled.div`
     width: 15px;
     height: 15px;
 `;
-const BottomBox = styled.div``;
+const BottomContainer = styled.div``;
 
 const Heading = styled.h2`
     margin-bottom: 15px;
@@ -162,4 +188,32 @@ const PostImageBox = styled.div`
     overflow: hidden;
     max-height: 500px;
     width: 100%;
+`;
+
+const BottomBox = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+`;
+
+const LefIconsBox = styled.div`
+    display: flex;
+    align-items: center;
+`;
+const LikeBox = styled.div`
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    margin-right: 10px;
+`;
+const CommentBox = styled.div`
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+`;
+const RightIconBox = styled.div`
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
 `;
