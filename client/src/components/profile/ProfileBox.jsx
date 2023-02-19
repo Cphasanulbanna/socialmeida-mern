@@ -18,7 +18,7 @@ function ProfileBox({ userData }) {
                             <Name>
                                 {userData?.firstname} {userData?.lastname}
                             </Name>
-                            <FriendsCount>2 friends</FriendsCount>
+                            <FriendsCount>friends :{userData?.friends?.length}</FriendsCount>
                         </PersonalInfoBox>
                     </ProfileInfoBox>
                     <SettingsBox className="icon-box">
@@ -111,9 +111,11 @@ export default ProfileBox;
 const MainContainer = styled.div`
     padding: 20px;
     border-radius: 5px;
-    background-color: #f1f1f1;
+    /* background-image: linear-gradient(to top, #4bc149 0%, #56e297 100%); */
     width: 25%;
     height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
 const ContentBox = styled.div`

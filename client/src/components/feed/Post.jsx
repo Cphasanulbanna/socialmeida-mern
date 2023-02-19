@@ -5,11 +5,16 @@ import { useSelector } from "react-redux";
 //PACKAGES
 import styled from "styled-components";
 
-function Post() {
+function Post({ addFriend }) {
     const [posts, setPosts] = useState([]);
     const accessToken = useSelector((state) => state.data.token);
+    const id = useSelector((state) => state.data.user._id);
 
-    useEffect(() => {
+    const handleSwipeDown = () => {
+        fetchPosts();
+    };
+
+    const fetchPosts = () => {
         axios
             .get("http://localhost:3001/posts/", {
                 headers: {
@@ -17,17 +22,45 @@ function Post() {
                 },
             })
             .then((response) => {
-                console.log(response.data);
                 setPosts(response.data);
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, [accessToken]);
+    };
+
+    useEffect(() => {
+        fetchPosts();
+    }, []);
+
+    // const addFriend = (friendId) => {
+    //     axios
+    //         .put(
+    //             `http://localhost:3001/users/${id}/${friendId}`,
+    //             {
+    //                 id: id,
+    //                 friendId: friendId,
+    //             },
+    //             {
+    //                 headers: {
+    //                     Authorization: `Bearer ${accessToken}`,
+    //                 },
+    //             }
+    //         )
+    //         .then((response) => {
+    //             console.log(response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
     return (
         <>
-            {posts.map((post) => (
-                <MainContainer>
+            {posts.map((post, index) => (
+                <MainContainer
+                    key={index}
+                    onSwipeDown={handleSwipeDown}
+                >
                     <TopBox>
                         <LeftBox>
                             <ProfileIconBox>
@@ -43,7 +76,7 @@ function Post() {
                                 <Place>{post.location}</Place>
                             </InfoBox>
                         </LeftBox>
-                        <RightBox>
+                        <RightBox onClick={() => addFriend(post.userId)}>
                             <img
                                 src={require("../../assets/images/post/add-friend.png")}
                                 alt="add-friend"
@@ -71,6 +104,13 @@ const MainContainer = styled.section`
     padding: 20px;
     display: flex;
     flex-direction: column;
+    /* background-image: linear-gradient(to top, #9970f7 0%, #f284d3 100%); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    /* background-image: linear-gradient(to top, #9970f7 0%, #f284d3 100%); */
+    /* background-image: linear-gradient(to top, #4bc149 0%, #56e297 100%); */
 `;
 const TopBox = styled.div`
     margin-bottom: 15px;

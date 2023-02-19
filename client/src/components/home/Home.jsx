@@ -6,6 +6,7 @@ import Feed from "../feed/Feed";
 import ProfilePage from "../profile/ProfileBox";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import FriendList from "../profile/FriendList";
 
 function Home() {
     const [userData, setUserData] = useState(null);
@@ -22,7 +23,6 @@ function Home() {
                     },
                 })
                 .then((response) => {
-                    console.log(response);
                     setUserData(response.data);
                 })
                 .catch((error) => {
@@ -30,13 +30,40 @@ function Home() {
                 });
         }
     }, [userInfo, id, accessToken]);
+
+    const addFriend = (friendId) => {
+        axios
+            .put(
+                `http://localhost:3001/users/${id}/${friendId}`,
+                {
+                    id: id,
+                    friendId: friendId,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                }
+            )
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     return (
         <>
             <Haeder />
             <MainContainer>
                 <Wrapper className="wrapper">
                     <ProfilePage userData={userData} />
-                    <Feed userData={userData} />
+                    <Feed
+                        userData={userData}
+                        addFriend={addFriend}
+                    />
+                    <FriendList addFriend={addFriend} />
                 </Wrapper>
             </MainContainer>
         </>
@@ -47,9 +74,11 @@ export default Home;
 
 const MainContainer = styled.section`
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     padding-top: 80px;
-    background-color: #eee9e9;
+    /* background-color: #8693ab; */
+    /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
+    background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%);
 `;
 
 const Wrapper = styled.section`

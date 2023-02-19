@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Post from "./Post";
 
-function Feed({ userData }) {
+function Feed({ userData, addFriend }) {
     const [description, setDescription] = useState("");
     const [postImage, setPostImage] = useState("");
 
@@ -106,7 +106,7 @@ function Feed({ userData }) {
             </TopContainer>
 
             <PostContainer>
-                <Post />
+                <Post addFriend={addFriend} />
             </PostContainer>
         </MainContainer>
     );
@@ -116,6 +116,7 @@ export default Feed;
 
 const MainContainer = styled.div`
     width: 40%;
+    background: inherit;
 `;
 
 const TopContainer = styled.div`
@@ -124,15 +125,17 @@ const TopContainer = styled.div`
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    /* background-image: linear-gradient(to top, #9970f7 0%, #f284d3 100%); */
+    /* background-image: linear-gradient(to top, #4bc149 0%, #56e297 100%); */
     margin-bottom: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
 const TopBox = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-    border-bottom: 1px solid #111;
 `;
 
 const ProfileImageBox = styled.div`
@@ -147,10 +150,11 @@ const ProfileImageBox = styled.div`
 const PostInput = styled.input`
     padding: 10px;
     border-radius: 15px;
-    background-color: #f1f1f1;
+    background-color: #bfa8f5;
     font-size: 16px;
-    width: 100%;
+    width: 80%;
     &::placeholder {
+        color: #ead9d9;
         font-size: 16px;
     }
 `;
@@ -184,9 +188,16 @@ const InputIcon = styled.div`
     margin-right: 8px;
 `;
 
-const PostButton = styled.span``;
+const PostButton = styled.span`
+    background-color: #6a50a7;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+`;
 
 const PostContainer = styled.div`
-    background-color: #fff;
     border-radius: 5px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 `;
