@@ -78,9 +78,10 @@ const MainContainer = styled.section`
     padding-top: 80px;
     /* background-color: #8693ab; */
     /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
-    background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%);
+    /* background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%); */
 
     /* background-image: linear-gradient(to top, #51f0c3 0%, #39c9c2 100%); */
+    background-color: #f1f1f1;
 `;
 
 const Wrapper = styled.section`

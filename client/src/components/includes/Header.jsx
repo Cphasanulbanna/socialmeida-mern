@@ -5,6 +5,7 @@ import styled from "styled-components";
 function Haeder() {
     //STATES
     const [query, setQuery] = useState("");
+    const [viewSettings, setViewSettings] = useState(false);
 
     //HANDLING SEARCH QUERY
     const handleChange = (e) => {
@@ -50,7 +51,18 @@ function Haeder() {
                             alt="notification"
                         />
                     </NotificationBox>
+                    <SettingsBox onClick={() => setViewSettings(!viewSettings)}>
+                        <img
+                            src={require("../../assets/images/profile/settings.png")}
+                            alt="settings"
+                        />
+                    </SettingsBox>
                 </RightBox>
+                {viewSettings && (
+                    <LogoutModal>
+                        <LogoutButton>Logout</LogoutButton>
+                    </LogoutModal>
+                )}
             </Wrapper>
         </MainContainer>
     );
@@ -127,6 +139,7 @@ const SearchIconBox = styled.div`
 const RightBox = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
 `;
 
 const BrightnessBox = styled.div`
@@ -147,4 +160,34 @@ const NotificationBox = styled.div`
     width: 25px;
     height: 25px;
     cursor: pointer;
+    margin-right: 20px;
+`;
+
+const SettingsBox = styled.div`
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+`;
+
+const LogoutModal = styled.div`
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 20px -20px, rgba(0, 0, 0, 0.3) 0px 20px 20px -20px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    position: fixed;
+    top: 70px;
+    right: 60px;
+`;
+
+const LogoutButton = styled.span`
+    background-color: #fff;
+    display: inline-block;
+    width: 100%;
+    padding: 7px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
 `;
