@@ -60,9 +60,17 @@ export default Haeder;
 
 const MainContainer = styled.section`
     position: fixed;
+    z-index: 2;
     width: 100%;
     padding: 15px 0;
-    background-image: linear-gradient(to top, #7df17b 0%, #5bc68d 100%);
+    /* background-image: linear-gradient(to top, #7df17b 0%, #5bc68d 100%); */
+
+    /* background-image: linear-gradient(to top, #51f0c3 0%, #39c9c2 100%); */
+
+    /* background-image: linear-gradient(to top, #51e3f0 0%, #39a5c9 100%); */
+    background-color: #fff;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
 `;
 
 const Wrapper = styled.section`
@@ -90,8 +98,17 @@ const SearchBox = styled.div`
 const SearchInput = styled.input`
     padding: 10px;
     font-size: 16px;
-    background-color: #f0e3e3;
+    /* background-color: #f0e3e3; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* color: #fff; */
+
+    /* background-image: linear-gradient(to top, #51e3f0 0%, #39a5c9 100%); */
+    /* background-image: linear-gradient(to top, #51f0c3 0%, #39c9c2 100%); */
+
+    /* background-image: linear-gradient(to top, #a3f5c9 0%, #a1e8a0 100%); */
     &::placeholder {
+        /* color: #fff; */
         font-size: 16px;
     }
 `;

@@ -111,6 +111,9 @@ const MainContainer = styled.section`
     border-radius: 10px;
     /* background-image: linear-gradient(to top, #9970f7 0%, #f284d3 100%); */
     /* background-image: linear-gradient(to top, #4bc149 0%, #56e297 100%); */
+
+    /* background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%); */
+    background-color: #fff;
 `;
 const TopBox = styled.div`
     margin-bottom: 15px;

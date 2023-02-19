@@ -130,6 +130,9 @@ const TopContainer = styled.div`
     margin-bottom: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    /* background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%); */
+    background-color: #fff;
 `;
 
 const TopBox = styled.div`
@@ -149,12 +152,21 @@ const ProfileImageBox = styled.div`
 
 const PostInput = styled.input`
     padding: 10px;
-    border-radius: 15px;
-    background-color: #bfa8f5;
+    border-radius: 5px;
+    /* background-color: #bfa8f5; */
+
+    /* background-image: linear-gradient(to top, #51f0c3 0%, #39c9c2 100%); */
+
+    /* background-image: linear-gradient(to top, #a1e8a0 0%, #a3f5c9 100%); */
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* color: #fff; */
+
     font-size: 16px;
     width: 80%;
     &::placeholder {
-        color: #ead9d9;
+        /* color: #fff; */
         font-size: 16px;
     }
 `;
@@ -189,8 +201,13 @@ const InputIcon = styled.div`
 `;
 
 const PostButton = styled.span`
-    background-color: #6a50a7;
-    color: #fff;
+    /* background-color: #6a50a7; */
+    /* background-image: linear-gradient(to top, #51f0c3 0%, #39c9c2 100%); */
+
+    /* background-image: linear-gradient(to top, #a3f5c9 0%, #a1e8a0 100%); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* color: #fff; */
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
