@@ -7,6 +7,7 @@ import Login from "../../auth/Login";
 import ProfilePage from "../../profile/ProfileBox";
 import Register from "../../auth/Register";
 import { useSelector } from "react-redux";
+import PrivateRoute from "../routes/PrivateRoute";
 
 function AppRouter() {
     const accessToken = useSelector((state) => state.data.token);
@@ -18,7 +19,11 @@ function AppRouter() {
             />
             <Route
                 path="/home"
-                element={<Home />}
+                element={
+                    <PrivateRoute>
+                        <Home />
+                    </PrivateRoute>
+                }
             />
 
             <Route
