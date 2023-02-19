@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 //PACKAGES
 import styled from "styled-components";
+import { setLogout } from "../../redux";
 
 function Haeder() {
     //STATES
     const [query, setQuery] = useState("");
     const [viewSettings, setViewSettings] = useState(false);
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     //HANDLING SEARCH QUERY
     const handleChange = (e) => {
         let value = e.target.value;
         setQuery(value);
+    };
+
+    const logout = () => {
+        dispatch(setLogout());
+        navigate("/");
     };
     return (
         <MainContainer>
@@ -60,7 +71,7 @@ function Haeder() {
                 </RightBox>
                 {viewSettings && (
                     <LogoutModal>
-                        <LogoutButton>Logout</LogoutButton>
+                        <LogoutButton onClick={() => logout()}>Logout</LogoutButton>
                     </LogoutModal>
                 )}
             </Wrapper>
